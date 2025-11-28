@@ -48,8 +48,9 @@ Parciales 1, 2 y 3
 
 En la columna Promedio, celda G2, escribe:
 
+```js
 =PROMEDIO(D2:F2)
-
+```
 
 Explicación rápida:
 
