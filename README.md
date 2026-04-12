@@ -63,9 +63,29 @@ Ejemplos de Visualización:
 Haz clic en el filtro de la columna Promedio y selecciona "De mayor a menor". Debería verse así:
 
 ```
-Alumno,Grupo,Promedio,Calif. Final
-Ana García,A,10.0,A
-Luis Pérez,B,9.5,A
+### Ejemplo de Registro de Datos (Primeros 10 de 30)
+
+| Alumno | Grupo | Materia | Parcial 1 | Parcial 2 | Parcial 3 | Promedio | Calificacion Final |
+| :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| Aguilar Sanchez Adriana | A | Matematicas | 10 | 9 | 10 | 9.6 | A |
+| Beltran Ortiz Carlos | B | Matematicas | 7 | 6 | 7 | 6.6 | D |
+| Carmona Lara Dulce | C | Matematicas | 8 | 8 | 9 | 8.3 | B |
+| Diaz Reyes Esteban | A | Matematicas | 5 | 6 | 4 | 5.0 | F |
+| Espinoza Paz Fabian | B | Matematicas | 9 | 9 | 9 | 9.0 | A |
+| Flores Gomez Gloria | C | Matematicas | 7 | 7 | 8 | 7.3 | C |
+| Gutierrez Hernandez Hugo | A | Matematicas | 10 | 10 | 10 | 10.0 | A |
+| Huerto Meza Isabel | B | Matematicas | 6 | 5 | 6 | 5.6 | F |
+| Jimenez Loera Javier | C | Matematicas | 8 | 7 | 8 | 7.6 | C |
+| Leon Ruiz Laura | A | Matematicas | 9 | 8 | 9 | 8.6 | B |
+
+---
+
+### Guia de Referencia para Formulas
+
+| Celda | Descripcion | Formula a Ingresar |
+| :--- | :--- | :--- |
+| **G2** | Promedio | `=PROMEDIO(D2:F2)` |
+| **H2** | Letra | `=SI(G2>=9,"A",SI(G2>=8,"B",SI(G2>=7,"C",SI(G2>=6,"D","F"))))` |
 ```excel
 
 ❌ Filtrar Reprobados
