@@ -1,156 +1,91 @@
-# Práctica: Cálculo de Promedio de 3 Parciales, Calificación Final y Filtros Avanzados (Excel / Google Sheets)
+# Práctica: Cálculo de Promedio y Filtros Avanzados
 
-Descripción
+¡Bienvenidos a la práctica de gestión de datos académicos! En este ejercicio aprenderás a utilizar **Excel** o **Google Sheets** para automatizar el cálculo de calificaciones y analizar el rendimiento de un grupo de estudiantes.
 
-En esta práctica aprenderás a: 
-Registrar datos académicos de 30 alumnos
-Calcular el promedio de los 3 parciales
-Obtener la calificación final en letra (A–F)
-Aplicar filtros y ordenamiento por promedio, grupo, materia
-Filtrar alumnos con calificación perfecta (10 o A)
-Analizar el rendimiento académico
+---
 
-Objetivos
+## Descripción
+Aprenderás a registrar datos, aplicar fórmulas lógicas y utilizar herramientas de ordenamiento y filtrado para obtener información valiosa de una lista de 30 alumnos.
 
-Dominar el uso de fórmulas básicas en hojas de cálculo.
+## Objetivos
+* Dominar funciones básicas: `PROMEDIO()` y `SI()`.
+* Aprender a arrastrar fórmulas para automatizar procesos.
+* Utilizar filtros para segmentar datos (alumnos aprobados, reprobados y sobresalientes).
 
-Utilizar correctamente PROMEDIO(), SI() y CONTAR.SI().
+---
 
-Ordenar datos según criterios académicos.
+## 1. Estructura de la Tabla
+Crea una hoja de cálculo con las siguientes columnas. Debes registrar **30 alumnos** con datos inventados.
 
-Analizar resultados por grupo o materia.
+| Alumno | Grupo | Materia | Parcial 1 | Parcial 2 | Parcial 3 | Promedio | Calificación Final |
+| :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| Ejemplo: Juan Pérez | A | Física | 10 | 9 | 8 | *Fórmula* | *Fórmula* |
 
-Filtrar estudiantes sobresalientes o reprobados.
+---
 
-Estructura de la Tabla (con 30 alumnos)
+## 2. Fórmulas a Utilizar
 
-Crea una hoja con las siguientes columnas:
-
-Alumno	Grupo	Materia	Parcial 1	Parcial 2	Parcial 3	Promedio	Calificación Final
-
-Llena mínimo 30 alumnos con datos inventados.
-
-Instrucciones:
-
-1. Registrar los datos de los 30 alumnos
-
-Llena las columnas:
-
-Alumno (nombre completo)
-
-Grupo (ej. A, B, C)
-
-Materia (ej. Matemáticas, Español, Física)
-
-Parciales 1, 2 y 3
-
-2. Calcular el Promedio
-
-En la columna Promedio, celda G2, escribe:
-
-```js
+### A. Calcular el Promedio
+En la celda **G2** (debajo de la columna "Promedio"), ingresa la siguiente fórmula:
+```excel
 =PROMEDIO(D2:F2)
+
+Luego, selecciona la esquina inferior derecha de la celda y arrastra hacia abajo hasta el alumno 30.
+
+B. Determinar Calificación en Letra
+En la celda H2 (debajo de "Calificación Final"), utilizaremos una función lógica para asignar una letra según el promedio:
+
 ```
+=SI(G2>=9,"A",SI(G2>=8,"B",SI(G2>=7,"C",SI(G2>=6,"D","F"))))
+```excel
 
-Explicación rápida:
+Escala de conversión:
 
-D2 = Parcial 1
+9.0 a 10: A
 
-E2 = Parcial 2
+8.0 a 8.9: B
 
-F2 = Parcial 3
+7.0 a 7.9: C
 
-Arrastra hacia abajo hasta el alumno #30.
+6.0 a 6.9: D
 
-3. Calificación Final en Letra (A, B, C, D, F)
+Menor a 6.0: F
 
-En la columna Calificación Final, celda H2 escribe:
+3. Filtros y Análisis
+Para activar los filtros, selecciona los encabezados de tu tabla y ve a:
 
-```js
+En Excel: Pestaña Datos > Filtro.
 
-=SI(G2=10,"A",SI(G2>=9,"A",SI(G2>=8,"B",SI(G2>=7,"C",SI(G2>=6,"D","F")))))
+En Google Sheets: Menú Datos > Crear un filtro.
+
+Ejemplos de Visualización:
+🔝 Ordenar por Mejores Promedios
+Haz clic en el filtro de la columna Promedio y selecciona "De mayor a menor". Debería verse así:
+
 ```
+Alumno,Grupo,Promedio,Calif. Final
+Ana García,A,10.0,A
+Luis Pérez,B,9.5,A
+```excel
 
-Esto convierte el promedio numérico a letra según la escala:
+❌ Filtrar Reprobados
+En el filtro de la columna Calificación Final, desmarca todas las opciones y deja solo la "F".
+```
+Alumno,Grupo,Promedio,Calif. Final
+Carlos Ruiz,C,5.4,F
+```excel
 
-10 = A
+4. Entregables (Checklist)
+Asegúrate de incluir lo siguiente en tu reporte o carpeta de evidencias:
 
-9 = A
+[ ] Archivo de Excel/Link de Sheets con los 30 alumnos y fórmulas aplicadas.
 
-8 = B
+[ ] Captura 1: Tabla completa ordenada por promedio (de mayor a menor).
 
-7 = C
+[ ] Captura 2: Filtro aplicado para mostrar solo alumnos con Promedio de 10.
 
-6 = D
+[ ] Captura 3: Filtro aplicado para mostrar solo alumnos con Calificación A.
 
-<6 = F
+[ ] Captura 4: Filtro aplicado para mostrar solo alumnos reprobados (F).
 
-Arrastra hacia abajo hasta el alumno #30.
- 4. Activar Filtros
-En Excel
-
-Selecciona toda la tabla.
-
-Datos → Filtro.
-
-En Google Sheets
-
-Selecciona la tabla.
-
-Datos → Crear filtro.
-
-Aparecerá un icono de embudo (▼) en cada columna.
-
-5. Ordenar por Promedio
-
-Haz clic en ▼ de la columna Promedio →
-
-Ordenar de mayor a menor (mejores alumnos primero)
-
-Ordenar de menor a mayor (alumnos que necesitan apoyo)
-
-6. Filtrar alumnos con 10 de promedio o calificación A
-Opción 1: Filtrar 10 en Promedio
-
-En el filtro de la columna Promedio:
-
-Desmarca todos
-
-Deja solo marcado 10
-
-Opción 2: Filtrar por calificación A
-
-En la columna Calificación Final, filtro ▼:
-
-Deja únicamente seleccionada A
-
-Esto mostrará únicamente a los alumnos con desempeño sobresaliente.
-
-7. Filtrar alumnos reprobados (<6)
-
-Columna Promedio:
-
-Filtro → dejar solo valores de 0 a 5.9
-
-Columna Calificación Final:
-
-Filtro → seleccionar F
-
-** Entregables:
-
-Tabla con 30 alumnos completos.
-
-Promedio calculado correctamente.
-
-Calificación final en letra.
-
-Captura de pantalla de la tabla ordenada por promedio.
-
-Captura filtrando solo alumnos con 10.
-
-Captura filtrando solo alumnos con A.
-
-Captura filtrando solo reprobados.
-
-(Opcional) Ordenar por Grupo → Promedio.
-
+Nota: Si tu computadora está configurada en español de España o México, es posible que debas usar punto y coma (;) en lugar de coma (,) en las fórmulas. Ejemplo: =PROMEDIO(D2;F2).
